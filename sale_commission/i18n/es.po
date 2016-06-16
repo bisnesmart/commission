@@ -1,22 +1,24 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * sale_commission
-# 
-# Translators:
-# Ivan Todorovich <ivan.todorovich@gmail.com>, 2016
+#	* sale_commission
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: commission (8.0)\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 00:45+0000\n"
-"PO-Revision-Date: 2016-03-15 00:43+0000\n"
-"Last-Translator: Ivan Todorovich <ivan.todorovich@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/oca/OCA-commission-8-0/language/es/)\n"
+"POT-Creation-Date: 2016-06-16 11:02+0000\n"
+"PO-Revision-Date: 2016-06-16 11:02+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: \n"
+
+#. module: sale_commission
+#: field:sale.commission.analysis.report,quantity:0
+msgid "# of Qty"
+msgstr "# de Cantidad"
 
 #. module: sale_commission
 #: view:sale.commission.make.invoice:sale_commission.sale_commission_make_invoice_form
@@ -36,6 +38,8 @@ msgstr "Activa"
 #. module: sale_commission
 #: field:account.invoice.line.agent,agent:0
 #: view:res.partner:sale_commission.view_partner_form_agent
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_search
+#: field:sale.commission.analysis.report,agent_id:0
 #: view:sale.commission.settlement:sale_commission.view_settlement_search
 #: field:sale.commission.settlement,agent:0
 #: view:sale.commission.settlement.line:sale_commission.view_settlement_line_search
@@ -61,6 +65,11 @@ msgid "Agent line"
 msgstr "Línea de agente"
 
 #. module: sale_commission
+#: view:website:sale_commission.report_settlement
+msgid "Agent:"
+msgstr "Agente:"
+
+#. module: sale_commission
 #: view:account.invoice.line.agent:sale_commission.invoice_line_agent_form
 #: model:ir.actions.act_window,name:sale_commission.action_agent_form
 #: model:ir.ui.menu,name:sale_commission.menu_agent_form
@@ -74,7 +83,8 @@ msgid "Agents"
 msgstr "Agentes"
 
 #. module: sale_commission
-#: field:account.invoice.line,agents:0 field:sale.order.line,agents:0
+#: field:account.invoice.line,agents:0
+#: field:sale.order.line,agents:0
 msgid "Agents & commissions"
 msgstr "Agentes y comisiones"
 
@@ -90,6 +100,7 @@ msgid "Agents/Commissions related to the invoice line."
 msgstr "Agentes/Comisiones relacionadas con la línea de factura."
 
 #. module: sale_commission
+#: field:sale.commission.analysis.report,amount:0
 #: field:sale.order.line.agent,amount:0
 msgid "Amount"
 msgstr "Importe"
@@ -97,6 +108,7 @@ msgstr "Importe"
 #. module: sale_commission
 #: field:account.invoice.line.agent,amount:0
 #: field:sale.commission.settlement.line,settled_amount:0
+#: view:website:sale_commission.report_settlement
 msgid "Amount settled"
 msgstr "Importe liquidado"
 
@@ -127,10 +139,21 @@ msgid "Canceled"
 msgstr "Cancelada"
 
 #. module: sale_commission
+#: selection:sale.commission.analysis.report,invoice_state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: sale_commission
 #: code:addons/sale_commission/models/settlement.py:47
 #, python-format
 msgid "Cannot cancel an invoiced settlement."
 msgstr "No se puede cancelar una liquidación facturada."
+
+#. module: sale_commission
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_search
+#: field:sale.commission.analysis.report,categ_id:0
+msgid "Category of Product"
+msgstr "Categoría de Producto"
 
 #. module: sale_commission
 #: help:res.partner,agent:0
@@ -149,6 +172,7 @@ msgstr "Sin comisión"
 #: view:sale.commission:sale_commission.sale_commission_form
 #: field:sale.commission.section,commission:0
 #: field:sale.order.line.agent,commission:0
+#: view:website:sale_commission.report_settlement
 msgid "Commission"
 msgstr "Comisión"
 
@@ -180,6 +204,17 @@ msgstr "Tipos de comisión"
 #: field:sale.order,commission_total:0
 msgid "Commissions"
 msgstr "Comisiones"
+
+#. module: sale_commission
+#: model:res.groups,name:sale_commission.group_commission_per_so_line
+msgid "Commissions in Sale Order Lines"
+msgstr "Comisiones en las Líneas de Pedido de Venta"
+
+#. module: sale_commission
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_search
+#: field:sale.commission.analysis.report,company_id:0
+msgid "Company"
+msgstr "Compañía"
 
 #. module: sale_commission
 #: model:ir.actions.act_window,name:sale_commission.action_commission_make_invoices
@@ -239,9 +274,19 @@ msgid "Currency id"
 msgstr "Moneda"
 
 #. module: sale_commission
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_search
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: sale_commission
 #: field:sale.commission.make.invoice,date:0
 msgid "Date"
 msgstr "Fecha"
+
+#. module: sale_commission
+#: field:sale.commission.analysis.report,date_invoice:0
+msgid "Date Invoice"
+msgstr "Fecha Factura"
 
 #. module: sale_commission
 #: view:sale.commission.settlement:sale_commission.view_settlement_search
@@ -254,19 +299,26 @@ msgid "Date month"
 msgstr "Mes"
 
 #. module: sale_commission
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_search
+#: selection:sale.commission.analysis.report,invoice_state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: sale_commission
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_search
+msgid "Extended Filters"
+msgstr "Filtros avanzados"
+
+#. module: sale_commission
 #: selection:res.partner,agent_type:0
 msgid "External agent"
 msgstr "Agente externo"
 
 #. module: sale_commission
-#: selection:sale.commission,commission_type:0 field:sale.commission,fix_qty:0
+#: selection:sale.commission,commission_type:0
+#: field:sale.commission,fix_qty:0
 msgid "Fixed percentage"
 msgstr "Porcentaje fijo"
-
-#. module: sale_commission
-#: selection:sale.commission,commission_type:0
-msgid "Formula"
-msgstr "Fórmula"
 
 #. module: sale_commission
 #: field:product.template,commission_free:0
@@ -285,6 +337,11 @@ msgid "From settlement"
 msgstr "Desde liquidación"
 
 #. module: sale_commission
+#: view:website:sale_commission.report_settlement
+msgid "From:"
+msgstr "De:"
+
+#. module: sale_commission
 #: view:sale.commission:sale_commission.sale_commission_form
 msgid "General information"
 msgstr "Información general"
@@ -300,17 +357,22 @@ msgid "Gross Amount"
 msgstr "Importe Bruto"
 
 #. module: sale_commission
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_search
 #: view:sale.commission.settlement:sale_commission.view_settlement_search
 #: view:sale.commission.settlement.line:sale_commission.view_settlement_line_search
 msgid "Group By"
 msgstr "Agrupar por"
 
 #. module: sale_commission
-#: field:account.invoice.line.agent,id:0 field:sale.commission,id:0
+#: field:account.invoice.line.agent,id:0
+#: field:sale.commission,id:0
+#: field:sale.commission.analysis.report,id:0
 #: field:sale.commission.make.invoice,id:0
-#: field:sale.commission.make.settle,id:0 field:sale.commission.section,id:0
+#: field:sale.commission.make.settle,id:0
+#: field:sale.commission.section,id:0
 #: field:sale.commission.settlement,id:0
-#: field:sale.commission.settlement.line,id:0 field:sale.order.line.agent,id:0
+#: field:sale.commission.settlement.line,id:0
+#: field:sale.order.line.agent,id:0
 msgid "ID"
 msgstr "ID"
 
@@ -318,6 +380,7 @@ msgstr "ID"
 #: field:account.invoice.line.agent,invoice:0
 #: model:ir.model,name:sale_commission.model_account_invoice
 #: field:sale.commission.settlement.line,invoice:0
+#: view:website:sale_commission.report_settlement
 msgid "Invoice"
 msgstr "Factura"
 
@@ -332,13 +395,20 @@ msgid "Invoice Line"
 msgstr "Línea de factura"
 
 #. module: sale_commission
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_search
+msgid "Invoice Month"
+msgstr "Mes de factura"
+
+#. module: sale_commission
 #: field:sale.commission,invoice_state:0
+#: field:sale.commission.analysis.report,invoice_state:0
 msgid "Invoice Status"
 msgstr "Estado de Factura"
 
 #. module: sale_commission
 #: field:account.invoice.line.agent,invoice_date:0
 #: field:sale.commission.settlement.line,date:0
+#: view:website:sale_commission.report_settlement
 msgid "Invoice date"
 msgstr "Fecha de factura"
 
@@ -349,7 +419,9 @@ msgstr "Excepción de factura"
 
 #. module: sale_commission
 #: field:account.invoice.line.agent,invoice_line:0
+#: field:sale.commission.analysis.report,invoice_line_id:0
 #: field:sale.commission.settlement.line,invoice_line:0
+#: view:website:sale_commission.report_settlement
 msgid "Invoice line"
 msgstr "Línea de factura"
 
@@ -359,6 +431,7 @@ msgid "Invoice line agents and commissions"
 msgstr "Agentes y comisiones de línea de factura"
 
 #. module: sale_commission
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_search
 #: selection:sale.commission.settlement,state:0
 msgid "Invoiced"
 msgstr "Facturada"
@@ -416,6 +489,11 @@ msgid "Make settlements"
 msgstr "Realizar liquidaciones"
 
 #. module: sale_commission
+#: model:res.groups,comment:sale_commission.group_commission_per_so_line
+msgid "Members of this group can view and edit Agents & Commissions per Sale Order's and Invoice's Lines"
+msgstr "Miembros de este grupo podrán ver y editar los Agentes y las Comisiones por Pedido de Venta y Líneas de Factura"
+
+#. module: sale_commission
 #: selection:res.partner,settlement:0
 msgid "Monthly"
 msgstr "Mensual"
@@ -431,7 +509,23 @@ msgid "Net Amount"
 msgstr "Importe Neto"
 
 #. module: sale_commission
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_search
+msgid "Not Settled"
+msgstr "No liquidado"
+
+#. module: sale_commission
+#: selection:sale.commission.analysis.report,invoice_state:0
+msgid "Open"
+msgstr "Abierto"
+
+#. module: sale_commission
+#: selection:sale.commission.analysis.report,invoice_state:0
+msgid "Paid"
+msgstr "Pagado"
+
+#. module: sale_commission
 #: model:ir.model,name:sale_commission.model_res_partner
+#: field:sale.commission.analysis.report,partner_id:0
 msgid "Partner"
 msgstr "Empresa"
 
@@ -446,20 +540,50 @@ msgid "Percent"
 msgstr "Porcentaje"
 
 #. module: sale_commission
+#: field:sale.commission.analysis.report,percentage:0
+msgid "Percentage of commission"
+msgstr "Porcentaje de comisión"
+
+#. module: sale_commission
 #: code:addons/sale_commission/models/settlement.py:112
 #, python-format
 msgid "Period: from %s to %s"
 msgstr "Periodo: de %s a %s"
 
 #. module: sale_commission
+#: field:sale.commission.analysis.report,price_subtotal:0
+msgid "Price subtotal"
+msgstr "Precio subtotal"
+
+#. module: sale_commission
+#: field:sale.commission.analysis.report,price_unit:0
+msgid "Price unit"
+msgstr "Precio unitario"
+
+#. module: sale_commission
+#: field:sale.commission.analysis.report,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: sale_commission
 #: model:ir.model,name:sale_commission.model_product_template
 msgid "Product Template"
-msgstr "Plantilla de Producto"
+msgstr "Plantilla de producto"
 
 #. module: sale_commission
 #: field:sale.commission.make.invoice,product:0
 msgid "Product for invoicing"
 msgstr "Producto para facturar"
+
+#. module: sale_commission
+#: selection:sale.commission.analysis.report,invoice_state:0
+msgid "Proforma"
+msgstr "Proforma"
+
+#. module: sale_commission
+#: selection:sale.commission.analysis.report,invoice_state:0
+msgid "Proforma2"
+msgstr "Proforma2"
 
 #. module: sale_commission
 #: selection:res.partner,settlement:0
@@ -477,24 +601,41 @@ msgid "Refund Journal"
 msgstr "Diario de Reembolso"
 
 #. module: sale_commission
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_graph
+msgid "Sale Commission Analysis"
+msgstr "Análisis de Comisiones de Ventas"
+
+#. module: sale_commission
+#: model:ir.model,name:sale_commission.model_sale_commission_analysis_report
+msgid "Sale Commission Analysis Report"
+msgstr "Informe de Análisis de Comisiones de Ventas"
+
+#. module: sale_commission
+#: field:sale.commission.analysis.report,commission_id:0
+msgid "Sale commission"
+msgstr "Sale commission"
+
+#. module: sale_commission
 #: field:sale.order.line.agent,sale_line:0
 msgid "Sale line"
 msgstr "Línea de venta"
 
 #. module: sale_commission
+#: model:ir.actions.act_window,name:sale_commission.action_sale_commission_analysis_report
+#: model:ir.ui.menu,name:sale_commission.menu_sale_commissions_analysis
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_search
+msgid "Sales Commission Analysis"
+msgstr "Análisis de Comisiones de Ventas"
+
+#. module: sale_commission
 #: model:ir.model,name:sale_commission.model_sale_order
 msgid "Sales Order"
-msgstr "Orden de Venta"
+msgstr "Pedido de venta"
 
 #. module: sale_commission
 #: model:ir.model,name:sale_commission.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Línea de la Orden de Venta"
-
-#. module: sale_commission
-#: selection:res.partner,agent_type:0
-msgid "Salesman (employee)"
-msgstr "Vendedor (empleado)"
+msgstr "Línea pedido de venta"
 
 #. module: sale_commission
 #: field:sale.commission,sections:0
@@ -520,6 +661,8 @@ msgstr "Comisiones de liquidaciones"
 
 #. module: sale_commission
 #: field:account.invoice.line.agent,settled:0
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_search
+#: field:sale.commission.analysis.report,settled:0
 #: selection:sale.commission.settlement,state:0
 msgid "Settled"
 msgstr "Liquidada"
@@ -532,6 +675,7 @@ msgid "Settled total"
 msgstr "Total liquidado"
 
 #. module: sale_commission
+#: model:ir.actions.report.xml,name:sale_commission.action_report_settlement
 #: view:sale.commission.settlement:sale_commission.view_settlement_form
 #: field:sale.commission.settlement.line,settlement:0
 msgid "Settlement"
@@ -572,6 +716,8 @@ msgid "Settlement search"
 msgstr "Buscar liquidaciones"
 
 #. module: sale_commission
+#: model:ir.actions.act_window,name:sale_commission.action_settlement
+#: model:ir.ui.menu,name:sale_commission.menu_sale_commissions_settlements
 #: view:res.partner:sale_commission.view_partner_form_agent
 #: field:res.partner,settlements:0
 #: view:sale.commission.make.invoice:sale_commission.sale_commission_make_invoice_form
@@ -586,17 +732,30 @@ msgid "State"
 msgstr "Estado"
 
 #. module: sale_commission
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: sale_commission
 #: code:addons/sale_commission/models/sale_commission.py:55
 #, python-format
 msgid "The lower limit cannot be greater than upper one."
 msgstr "El límite inferior no puede ser mayor que el superior."
 
 #. module: sale_commission
+#: view:sale.commission.analysis.report:sale_commission.view_sale_commission_analysis_search
+msgid "This Year"
+msgstr "Este año"
+
+#. module: sale_commission
 #: help:res.partner,commission:0
-msgid ""
-"This is the default commission used in the sales where this agent is "
-"assigned. It can be changed on each operation if needed."
+msgid "This is the default commission used in the sales where this agent is assigned. It can be changed on each operation if needed."
 msgstr "Ésta es la comisión por defecto usada cuando se asigna un agente. Puede ser cambiada en cada operación si es necesario."
+
+#. module: sale_commission
+#: model:ir.actions.act_window,help:sale_commission.action_sale_commission_analysis_report
+msgid "This report performs analysis on your commissions added in invoice lines. You can check the amount and lines that will be settled by date, product, product category, aget, etc. Use this report to perform analysis on invoice lines agents not beeing settled yet."
+msgstr "Este informe crea un análisis de las commisiones agregadas en las líneas de factura. Puedes comprobar la cantidad y las líneas que serán liquidades por fecha, producto, categoría de producto, agente, etc. Utiliza este informe para realizar un análisis sobre los agentes de las líneas de factura que aún no han sido liquidadas."
 
 #. module: sale_commission
 #: view:sale.commission.settlement:sale_commission.view_settlement_search
@@ -611,14 +770,26 @@ msgid "To"
 msgstr "A"
 
 #. module: sale_commission
+#: view:website:sale_commission.report_settlement
+msgid "To:"
+msgstr "A:"
+
+#. module: sale_commission
 #: field:sale.commission.settlement,total:0
+#: view:website:sale_commission.report_settlement
 msgid "Total"
 msgstr "Total"
 
 #. module: sale_commission
-#: field:res.partner,agent_type:0 field:sale.commission,commission_type:0
+#: field:res.partner,agent_type:0
+#: field:sale.commission,commission_type:0
 msgid "Type"
 msgstr "Tipo"
+
+#. module: sale_commission
+#: field:sale.commission.analysis.report,uom_id:0
+msgid "Unit of Measure"
+msgstr "Unidad de medida"
 
 #. module: sale_commission
 #: field:sale.commission.make.settle,date_to:0
@@ -658,3 +829,4 @@ msgstr "secciones"
 #: view:sale.order:sale_commission.view_order_agent_form_inherit
 msgid "{'partner_id': partner_id}"
 msgstr "{'partner_id': partner_id}"
+

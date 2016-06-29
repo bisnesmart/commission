@@ -29,6 +29,17 @@
                     <filter string="This year"
                             name="thisyear"
                             domain="[('date_from', '&gt;=', time.strftime('%%Y-01-01')), ('date_to', '&lt;=', time.strftime('%%Y-12-31'))]" />
+                    <filter string="Settled"
+                            name="settled"
+                            domain="[('state', '=', 'settled')]" />
+                    <filter string="Invoiced"
+                            name="invoiced"
+                            domain="[('state', '=', 'invoiced')]" />
+                    <filter string="Cancelled and exceptions"
+                            name="cancel"
+                            domain="['|',
+                                      ('state', '=', 'cancel'),
+                                      ('state','=','except_invoice')]" />
                     <separator/>
                     <group expand="1" string="Group By">
                         <filter string="Agent" name="group_agent" context="{'group_by': 'agent'}"/>
@@ -49,6 +60,11 @@
                                 class="oe_highlight"
                                 type="object"
                                 name="action_invoice" />
+                      <!-- Raises a client error after deleting the current record -->
+                      <button string="Delete"
+                              attrs="{'invisible': [('state', '!=', 'cancel')]}"
+                              type="object"
+                              name="unlink" />
                         <button string="Cancel"
                                 states="settled"
                                 type="object"
